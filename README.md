@@ -1,5 +1,4 @@
 # LaTeXtemplates
-Templates of LaTeX
 
 ## Using templates
 Usually my templates are not much complexes. If you are a Tux, just tap on prompt:
