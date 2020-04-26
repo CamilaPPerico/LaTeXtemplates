@@ -1,0 +1,88 @@
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel} % change to your own language
+
+\usepackage[top=1.5cm,bottom=1cm,left=1cm,right=1cm,headsep=10pt,a4paper]{geometry} % Page margins
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{png/}} % Specifies the directory where pictures are stored
+
+% Non hifenize:
+\usepackage[none]{hyphenat}
+\usepackage{ifthen}
+\usepackage{scalefnt}
+\usepackage[listings,skins,breakable]{tcolorbox}
+
+
+\usepackage{xcolor} % Required for specifying colors by name
+% colors
+\definecolor{azul}{HTML}{002244}
+\definecolor{vermelho}{HTML}{600404}
+\definecolor{dourado}{HTML}{bb953d}
+
+
+
+\usepackage[pages=some]{background}
+
+\backgroundsetup{
+scale=1,
+color=black,
+opacity=1,
+angle=0,
+contents={%
+  \includegraphics[width=\paperwidth,height=\paperheight]{png/background}
+  }%
+}
+
+
+
+%% Command to insert the default page
+\newcommand{\para}[5]{
+\BgThispage
+~
+\vskip 1cm
+
+\begin{center}
+{\scalefont{2} \sc \color{azul} Nome do Evento Realizado}\\[5pt]
+{\scalefont{1.5} \sc \color{azul} Universidade Realizadora ou Instituição}\\
+{\scalefont{1.3} \sc \color{azul} 13 e 14 de Novembro de 2019 -- Cidade}\\
+\end{center}
+
+\vskip 3cm
+
+\hskip 10pt
+	\begin{center}
+\begin{minipage}{0.7\textwidth}
+	\scalefont{1.5}
+		
+		% ministrante de minicurso 
+		\ifthenelse{\equal{#3}{mini}}{Certificamos que {\sc #1} ministrou o minicurso de ``{\bf #2}'', realizado no Departamento XXX da Universidade Realizadora ou Instituição, com carga horária de #4 hora(s), realizado nos dias 13 e 14 de Novembro de 2019. \\}{}
+
+		% participante de minicurso
+		\ifthenelse{\equal{#3}{part}}{Certificamos que {\sc #1} participou do minicurso de  ``{\bf #2}'', realizado no Departamento XXX da Universidade Realizadora ou Instituição, com carga horária de #4 hora(s), realizado nos dias 13 e 14 de Novembro de 2019. \\}{}
+
+\end{minipage}
+	\end{center}
+
+\vskip -1cm
+	\begin{minipage}{0.2\textwidth}
+	~
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\scalefont{1.1}
+		\hskip 20pt\includegraphics[width=3cm]{png/assinatura}\\[-42pt]
+		\rule{8cm}{1pt}\\[5pt]
+		Prof. Dr. Fulano da Silva\\
+		Coordenador do Departamento \\
+		Cidade, 15 de Novembro de 2019
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\vskip 3cm
+		\includegraphics[width=3.5cm]{png/logo}
+	\end{minipage}
+
+
+\vfill
+\newpage
+
+}
+
+
